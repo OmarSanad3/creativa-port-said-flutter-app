@@ -45,6 +45,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 child: Column(
                   // shrinkWrap: true,
                   children: [
+                    const SizedBox(height: 50),
                     Image.asset(
                       'lib/assets/creativa_logo.jpg',
                       height: 100,
