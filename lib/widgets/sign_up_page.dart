@@ -70,10 +70,9 @@ class _SignUpPageState extends State<SignUpPage> {
                     _buildButton(
                       "Sign Up",
                       () {
-                        Navigator.push(
+                        Navigator.pushReplacement(
                           context,
-                          MaterialPageRoute(
-                              builder: (context) => const HomeScreen()),
+                          MaterialPageRoute(builder: (context) => HomeScreen()),
                         );
                       },
                     ),
@@ -138,7 +137,7 @@ Widget _buildAdditionalOptions(BuildContext context) {
       const Text("Alread have an account?"),
       TextButton(
         onPressed: () {
-          Navigator.push(
+          Navigator.pushReplacement(
             context,
             MaterialPageRoute(
               builder: (context) => const LoginPage(),

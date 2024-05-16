@@ -52,10 +52,10 @@ class _LoginPageState extends State<LoginPage> {
                     _buildButton(
                       "Login",
                       () {
-                        Navigator.push(
+                        Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const HomeScreen(),
+                            builder: (context) => HomeScreen(),
                           ),
                         );
                       },
@@ -121,10 +121,10 @@ Widget _buildAdditionalOptions(BuildContext context) {
       const Text("Don't have an account?"),
       TextButton(
         onPressed: () {
-          Navigator.push(
+          Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-              builder: (context) => SignUpPage(),
+              builder: (context) => const SignUpPage(),
             ),
           );
         },
