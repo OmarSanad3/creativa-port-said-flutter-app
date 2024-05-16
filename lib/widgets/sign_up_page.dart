@@ -1,3 +1,4 @@
+import 'package:creative_portsaid/widgets/home_screen.dart';
 import 'package:creative_portsaid/widgets/login_page.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui' as ui;
@@ -72,7 +73,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const Placeholder()),
+                              builder: (context) => const HomeScreen()),
                         );
                       },
                     ),
