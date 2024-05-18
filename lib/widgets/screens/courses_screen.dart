@@ -3,6 +3,15 @@ import 'package:creative_portsaid/widgets/screens/course_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:creative_portsaid/data/courses.dart';
 
+String getInCompleteDescription(String description) {
+  description = description.trim();
+  description = description[0].toUpperCase() + description.substring(1);
+  if (description.length > 100) {
+    return "${description.substring(0, 97)}...";
+  }
+  return description;
+}
+
 class CoursesScreen extends StatelessWidget {
   const CoursesScreen({super.key});
 
@@ -55,7 +64,7 @@ class CoursesScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  courses[index].englishDescription,
+                  getInCompleteDescription(courses[index].englishDescription),
                   style: const TextStyle(
                     // color: kYellowColorScheme.primary,
                     fontSize: 16,
