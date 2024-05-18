@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "955828925161",
+    "project_id": "creativa-flutter-sanad",
+    "storage_bucket": "creativa-flutter-sanad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:955828925161:android:80e19acf91009d7f1bf678",
+        "android_client_info": {
+          "package_name": "com.example.creative_portsaid"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlmsdm_M7ClGuOSJuLml4Ag_xFK3KRqKs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

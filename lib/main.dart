@@ -1,3 +1,4 @@
+import 'package:creative_portsaid/firebase_options.dart';
 import 'package:creative_portsaid/widgets/home_screen.dart';
 import 'package:creative_portsaid/widgets/login_page.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -20,9 +21,11 @@ var kGrayColorScheme = ColorScheme.fromSeed(
   seedColor: kGrayColor,
 );
 
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 
   // Retrieve saved state from SharedPreferences
   final prefs = await SharedPreferences.getInstance();
