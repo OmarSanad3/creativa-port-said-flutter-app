@@ -1,9 +1,16 @@
 import 'package:creative_portsaid/main.dart';
 import 'package:creative_portsaid/models/course.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+Future<void> _launchURLGoogleForm(BuildContext context, Uri uri) async {
+  if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
+    throw Exception("Could not launch $uri");
+  }
+}
 
 class CourseDetailsScreen extends StatelessWidget {
-  CourseDetailsScreen({super.key, required this.course});
+  const CourseDetailsScreen({super.key, required this.course});
 
   final Course course;
 
@@ -15,9 +22,8 @@ class CourseDetailsScreen extends StatelessWidget {
       ),
       body: Center(
         child: SingleChildScrollView(
-          // set the background color of the container to kBlueColor.withOpacity(0.25)
           child: Container(
-            // margin: const EdgeInsets.symmetric(vertical: 0, horizontal: 30),
+            height: MediaQuery.of(context).size.height,
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
               color: const Color(0xFF004F9F).withOpacity(0.6),
@@ -62,7 +68,10 @@ class CourseDetailsScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 8),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    final Uri uri = Uri.parse(course.formLink);
+                    _launchURLGoogleForm(context, uri);
+                  },
                   child: const Text("Register"),
                 ),
               ],
