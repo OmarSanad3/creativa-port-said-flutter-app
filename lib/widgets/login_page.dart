@@ -1,3 +1,4 @@
+import 'package:creative_portsaid/main.dart';
 import 'package:creative_portsaid/widgets/home_screen.dart';
 import 'package:creative_portsaid/widgets/sign_up_page.dart';
 import 'package:flutter/material.dart';
@@ -76,18 +77,18 @@ class _LoginPageState extends State<LoginPage> {
 Widget _buildTextField(
     String label, bool obscureText, TextEditingController controller) {
   return TextField(
-    style: const TextStyle(color: Color(0xFF034C9F)),
+    style: TextStyle(color: kBlueColorScheme.primary),
     controller: controller,
     obscureText: obscureText,
     decoration: InputDecoration(
       hintText: label,
       filled: true,
-      fillColor: const Color(0x60EEEEEE),
-      focusColor: const Color(0x60EEEEEE),
+      fillColor: kGrayColor,
+      focusColor: kGrayColor,
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(10),
         borderSide: const BorderSide(
-          color: Color(0x60EEEEEE),
+          color: kGrayColor,
         ),
       ),
       border: OutlineInputBorder(
@@ -104,7 +105,7 @@ Widget _buildButton(String label, Function onPressed) {
     onPressed: () => onPressed(),
     style: ButtonStyle(
       backgroundColor: MaterialStateProperty.all(
-        const Color(0x60EEEEEE),
+        kGrayColor,
       ),
       foregroundColor: MaterialStateProperty.all(
         Colors.black,
@@ -130,7 +131,7 @@ Widget _buildAdditionalOptions(BuildContext context) {
         },
         child: const Text(
           "Sign Up",
-          style: TextStyle(color: Color(0x60EEEEEE)),
+          style: TextStyle(color: kGrayColor),
         ),
       ),
     ],
