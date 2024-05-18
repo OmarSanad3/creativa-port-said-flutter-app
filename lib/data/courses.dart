@@ -1,6 +1,6 @@
 import 'package:creative_portsaid/models/course.dart';
 
-List<Course> myCourses = [
+List<Course> courses = [
   Course(
     courseName: "Ideation Bootcamp (Think & Design)",
     englishDescription:
@@ -8,7 +8,7 @@ List<Course> myCourses = [
     arabicDescription:
         "يعد تدريبا محورياً لظهور الشركات الناشئة الجديدة، حيث أنه يشعل التفكير الإبداعي، ويضمن التدفق المستمر للأفكار المبتكرة لتعزيز النظام البيئي لريادة الأعمال في حاضنتنا أو غيرها",
     duration: 11,
-    imagePath: "",
+    imagePath: "lib/assets/ideation_image.jpeg",
     formLink: "https://forms.gle/P5aRwGSimmLAkRnm9",
   ),
   Course(
@@ -18,7 +18,7 @@ List<Course> myCourses = [
     arabicDescription:
         "تحسين مهارات رواد الأعمال المستقبليين باستخدام مهارات بناء القدرات، ويعد برنامج مهارات العرض جزءًا من برنامج رحلة الشركات الناشئة",
     duration: 2,
-    imagePath: "",
+    imagePath: "lib/assets/ideation_image.jpeg",
     formLink: "https://forms.gle/TdU4uq2b23XX3k4P8",
   ),
   Course(
@@ -28,7 +28,7 @@ List<Course> myCourses = [
     arabicDescription:
         "تحسين مهارات رواد الأعمال المستقبليين باستخدام مهارات بناء القدرات، ويعد برنامج القيادة جزءًا من برنامج رحلة الشركات الناشئة",
     duration: 2,
-    imagePath: "",
+    imagePath: "lib/assets/ideation_image.jpeg",
     formLink: "https://forms.gle/UcrNpCSA24pjfx1J8",
   ),
   Course(
@@ -38,7 +38,7 @@ List<Course> myCourses = [
     arabicDescription:
         "تحسين مهارات رواد الأعمال المستقبليين باستخدام مهارات بناء القدرات، برنامج إدارة الوقت جزء من برنامج رحلة الشركات الناشئة (برنامج ما قبل الحضانة)",
     duration: 2,
-    imagePath: "",
+    imagePath: "lib/assets/ideation_image.jpeg",
     formLink: "https://forms.gle/xBFxoLooLt8BZWse6",
   ),
   Course(
@@ -48,7 +48,7 @@ List<Course> myCourses = [
     arabicDescription:
         "تعد ورشة عمل سلسلة التوريد أمرًا حيويًا للشركات الناشئة التي تتخرج من تدريبنا على ريادة الأعمال لأنها تزودهم بالأدوات الإستراتيجية للتنقل في ديناميكيات السوق المعقدة وبناء عمليات قوية وقابلة للتطوير.",
     duration: 1,
-    imagePath: "",
+    imagePath: "lib/assets/ideation_image.jpeg",
     formLink: "https://forms.gle/5FgwVZWLCxEav6YH9",
   ),
   Course(
@@ -58,7 +58,7 @@ List<Course> myCourses = [
     arabicDescription:
         "تزويد الخريجين الجدد والقادمين بالموارد والإرشادات اللازمة لبدء رحلتهم المهنية (كتابة السيرة الذاتية، وLinkedin، ومهارات المقابلة، وكيفية التقدم للحصول على وظيفة)",
     duration: 2,
-    imagePath: "",
+    imagePath: "lib/assets/ideation_image.jpeg",
     formLink: "https://forms.gle/uzbmqKBEhCGVJyke9",
   ),
   Course(
@@ -68,7 +68,7 @@ List<Course> myCourses = [
     arabicDescription:
         "المهارات والمعرفة الأساسية والأساسية المطلوبة لبدء مهنة مستقلة للحصول على أول وظيفة مستقلة لهم على مواقع العمل الحر (سيتم استهداف جولات Flutter، والويب، وCS والدورات الفنية) التي تم إجراؤها بالفعل)",
     duration: 2,
-    imagePath: "",
+    imagePath: "lib/assets/ideation_image.jpeg",
     formLink: "https://forms.gle/dcUT5AGj5N1LoEGX7",
   ),
   Course(
@@ -78,7 +78,7 @@ List<Course> myCourses = [
     arabicDescription:
         "المهارات التقنية للعاملين المستقلينfreelancers  ورواد الأعمال حول كيفية إنشاء تطبيق الهاتف المحمول الخاص بك باستخدام Flutter ليتم تحميله على متجر التطبيقات وGoogle Play وسطح المكتب",
     duration: 5,
-    imagePath: "",
+    imagePath: "lib/assets/ideation_image.jpeg",
     formLink:
         "https://forms.gle/v3PHWBQKQiiSMQXd9?fbclid=IwZXh0bgNhZW0CMTAAAR1ebIKmAT2afxS3ezy0qbSjZ4E77oROv9yDjXLhCO9jCKToQj8HJ5KhQmU_aem_AbxGhkXa5yzE3KX_kImvVvhsBss_lQnTIOlbsg-IhUILltO6OdKBQ1J4yli44YtaNy4SjFGAcltX8Ray1NH4TD04",
   ),
@@ -89,7 +89,7 @@ List<Course> myCourses = [
     arabicDescription:
         "المهارات التقنية للعاملين المستقلين ورواد الأعمال حول كيفية استخدام أساليب الذكاء الاصطناعي في الشركات الناشئة وتحقيق الربح للعاملين المستقلين",
     duration: 5,
-    imagePath: "",
+    imagePath: "lib/assets/ideation_image.jpeg",
     formLink: "https://forms.gle/ScyWLee9SGFVLhpm6",
   ),
   Course(
@@ -99,7 +99,7 @@ List<Course> myCourses = [
     arabicDescription:
         "المهارات التقنية للعاملين المستقلين ورواد الأعمال حول كيفية استخدام الأمن السيبراني في الشركات الناشئة وتحقيق الربح للعاملين لحسابهم الخاص، مما يشكل الأساس لحياة مهنية وأكاديمية آمنة.",
     duration: 5,
-    imagePath: "",
+    imagePath: "lib/assets/ideation_image.jpeg",
     formLink: "https://forms.gle/rHu39WLQ1ywQ5A4q7",
   ),
   Course(
@@ -109,7 +109,7 @@ List<Course> myCourses = [
     arabicDescription:
         "المهارات التقنية للعاملين المستقلين ورواد الأعمال حول كيفية إنشاء تطبيق الهاتف المحمول الخاص بك باستخدام إنشاء موقع ويب (HTML، CSS، JS)",
     duration: 5,
-    imagePath: "",
+    imagePath: "lib/assets/ideation_image.jpeg",
     formLink: "https://forms.gle/D2Wc3UHH4CGtvxd99",
   ),
   Course(
@@ -119,7 +119,7 @@ List<Course> myCourses = [
     arabicDescription:
         "المهارات التقنية للعاملين المستقلين ورواد الأعمال حول كيفية استخدام أساليب النظام المضمن في الشركات الناشئة وتحقيق الربح للعاملين المستقلين",
     duration: 5,
-    imagePath: "",
+    imagePath: "lib/assets/ideation_image.jpeg",
     formLink: "https://forms.gle/B1k77vJLXsFAjwBm7",
   ),
   Course(
@@ -129,7 +129,7 @@ List<Course> myCourses = [
     arabicDescription:
         "يعد تقديم دورة تقنية حول الاختبار أمرًا ضروريًا لتزويد الطلاب والخريجين بمهارات ضمان الجودة المهمة، مما يضمن قدرتهم على تقديم حلول تقنية موثوقة وقوية.",
     duration: 5,
-    imagePath: "",
+    imagePath: "lib/assets/ideation_image.jpeg",
     formLink: "https://forms.gle/RmbFhJ6c2VuskXaD6",
   ),
   Course(
@@ -139,7 +139,7 @@ List<Course> myCourses = [
     arabicDescription:
         "يعد تدريبا محوريًا للطلاب والخريجين والمهنيين لإتقان تصور البيانات، ودفع عملية صنع القرار المستندة إلى البيانات، وتعزيز قدرات ذكاء الأعمال.",
     duration: 10,
-    imagePath: "",
+    imagePath: "lib/assets/ideation_image.jpeg",
     formLink: "https://forms.gle/zhHzBqDxu9BPG2tZ9",
   ),
   Course(
@@ -149,7 +149,7 @@ List<Course> myCourses = [
     arabicDescription:
         "بما في ذلك خطة العمل، واستراتيجيات التسويق، والتخطيط المالي، والتوثيق، والشؤون القانونية والموارد البشرية، ومجموعة من الدورات المقدمة لخريجي معسكرات التفكير لدعمهم في خارطة طريق بدء مشروعهم الخاص",
     duration: 8,
-    imagePath: "",
+    imagePath: "lib/assets/ideation_image.jpeg",
     formLink: "https://forms.gle/Yj7pQHLjszzn3EQM9",
   ),
 ];
