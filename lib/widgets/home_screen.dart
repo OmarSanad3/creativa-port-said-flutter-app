@@ -1,4 +1,8 @@
 import 'package:creative_portsaid/models/custom_list_item.dart';
+import 'package:creative_portsaid/widgets/screens/about_creativa_screen.dart';
+import 'package:creative_portsaid/widgets/screens/courses_screen.dart';
+import 'package:creative_portsaid/widgets/screens/creativa_workspace_screen.dart';
+import 'package:creative_portsaid/widgets/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -21,22 +25,22 @@ class _HomeScreenState extends State<HomeScreen> {
     CustomListItem(
       title: "About Creativa Port Said",
       icon: Icons.info_rounded,
-      screen: const Center(child: Text('About Creativa Port Said')),
+      screen: const AboutCreativaScreen(),
     ),
     CustomListItem(
       title: "Profile",
       icon: Icons.person,
-      screen: const Center(child: Text('Profile Screen')),
+      screen: const ProfileScreen(),
     ),
     CustomListItem(
       title: "Courses",
       icon: Icons.school_rounded,
-      screen: const Center(child: Text('Courses')),
+      screen: const CoursesScreen(),
     ),
     CustomListItem(
       title: "Creativa Workspace",
       icon: Icons.workspace_premium,
-      screen: const Center(child: Text('Creativa Workspace')),
+      screen: const CreativaWorkspaceScreen(),
     ),
   ];
 
