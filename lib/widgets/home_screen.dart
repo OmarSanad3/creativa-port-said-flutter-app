@@ -2,7 +2,6 @@ import 'package:creative_portsaid/models/custom_list_item.dart';
 import 'package:creative_portsaid/widgets/screens/about_creativa_screen.dart';
 import 'package:creative_portsaid/widgets/screens/courses_screen.dart';
 import 'package:creative_portsaid/widgets/screens/creativa_workspace_screen.dart';
-import 'package:creative_portsaid/widgets/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -26,11 +25,6 @@ class _HomeScreenState extends State<HomeScreen> {
       title: "About Creativa Port Said",
       icon: Icons.info_rounded,
       screen: const AboutCreativaScreen(),
-    ),
-    CustomListItem(
-      title: "Profile",
-      icon: Icons.person,
-      screen: const ProfileScreen(),
     ),
     CustomListItem(
       title: "Courses",
@@ -62,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 color: Colors.blue,
               ),
               child: Text(
-                'Drawer Header',
+                'Creative Port Said',
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 24,
