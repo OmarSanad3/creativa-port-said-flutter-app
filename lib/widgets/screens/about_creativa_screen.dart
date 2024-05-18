@@ -59,7 +59,7 @@ class AboutCreativaScreen extends StatelessWidget {
               padding: const EdgeInsets.all(8),
               child: ElevatedButton(
                 style: ButtonStyle(
-                  foregroundColor: MaterialStateProperty.all(kBlueColor),
+                  foregroundColor: MaterialStateProperty.all(Colors.white),
                   backgroundColor: MaterialStateProperty.all(kYellowColor),
                 ),
                 onPressed: () {
