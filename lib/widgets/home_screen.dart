@@ -1,3 +1,4 @@
+import 'package:creative_portsaid/main.dart';
 import 'package:creative_portsaid/models/custom_list_item.dart';
 import 'package:creative_portsaid/widgets/screens/about_creativa_screen.dart';
 import 'package:creative_portsaid/widgets/screens/courses_screen.dart';
@@ -53,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             const DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.blue,
+                color: kBlueColor,
               ),
               child: Text(
                 'Creative Port Said',
@@ -79,6 +80,20 @@ class _HomeScreenState extends State<HomeScreen> {
                   });
                 },
               ),
+            const Divider(),
+            ListTile(
+              title: const Row(
+                children: [
+                  Icon(Icons.logout_outlined),
+                  SizedBox(width: 10),
+                  Text("Logout"),
+                ],
+              ),
+              onTap: () {
+                if (mounted) Navigator.pop(context);
+                Navigator.pop(context);
+              },
+            )
           ],
         ),
       ),
