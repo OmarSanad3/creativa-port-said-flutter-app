@@ -1,6 +1,7 @@
 import 'package:creative_portsaid/main.dart';
 import 'package:creative_portsaid/widgets/home_screen.dart';
 import 'package:creative_portsaid/widgets/sign_up_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui' as ui;
 
@@ -14,6 +15,9 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,34 +40,73 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             Center(
-              child: SingleChildScrollView(
-                padding: const EdgeInsets.all(12.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset(
-                      'lib/assets/creativa_logo.jpg',
-                      height: 100,
-                    ),
-                    const SizedBox(height: 20),
-                    _buildTextField("Email", false, emailController),
-                    const SizedBox(height: 20),
-                    _buildTextField("Password", true, passwordController),
-                    const SizedBox(height: 20),
-                    _buildButton(
-                      "Login",
-                      () {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => HomeScreen(),
-                          ),
-                        );
-                      },
-                    ),
-                    const SizedBox(height: 20),
-                    _buildAdditionalOptions(context),
-                  ],
+              child: Form(
+                key: _formKey,
+                child: SingleChildScrollView(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        'lib/assets/creativa_logo.jpg',
+                        height: 100,
+                      ),
+                      const SizedBox(height: 20),
+                      CustomTextForm(
+                        txt: "Email",
+                        obscureText: false,
+                        controller: emailController,
+                        validator: (val) {
+                          if (val == "") {
+                            return "This Field can't be empty";
+                          }
+                          return null;
+                        },
+                      ),
+                      const SizedBox(height: 20),
+                      CustomTextForm(
+                        txt: "Password",
+                        obscureText: true,
+                        controller: passwordController,
+                        validator: (val) {
+                          if (val == "") {
+                            return "This Field can't be empty";
+                          }
+                          return null;
+                        },
+                      ),
+                      const SizedBox(height: 20),
+                      _buildButton(
+                        "Login",
+                        () async {
+                          if (_formKey.currentState!.validate()) {
+                            try {
+                              final credential = await FirebaseAuth.instance
+                                  .signInWithEmailAndPassword(
+                                email: emailController.text.trim(),
+                                password: passwordController.text.trim(),
+                              );
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => HomeScreen(),
+                                ),
+                              );
+                            } on FirebaseAuthException catch (e) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  backgroundColor: Colors.red,
+                                  content: Text("Wrong Email or Password"),
+                                ),
+                              );
+                            }
+                          }
+                        },
+                      ),
+                      const SizedBox(height: 20),
+                      _buildAdditionalOptions(context),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -74,30 +117,48 @@ class _LoginPageState extends State<LoginPage> {
   }
 }
 
-Widget _buildTextField(
-    String label, bool obscureText, TextEditingController controller) {
-  return TextField(
-    style: TextStyle(color: kBlueColorScheme.primary),
-    controller: controller,
-    obscureText: obscureText,
-    decoration: InputDecoration(
-      hintText: label,
-      filled: true,
-      fillColor: kGrayColor,
-      focusColor: kGrayColor,
-      focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(10),
-        borderSide: const BorderSide(
-          color: kGrayColor,
+class CustomTextForm extends StatelessWidget {
+  const CustomTextForm({
+    super.key,
+    required this.txt,
+    required this.obscureText,
+    required this.controller,
+    required this.validator,
+  });
+
+  final String txt;
+  final bool obscureText;
+  final TextEditingController controller;
+  final String? Function(String?)? validator;
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      validator: validator,
+      style: TextStyle(color: kBlueColorScheme.primary),
+      controller: controller,
+      obscureText: obscureText,
+      decoration: InputDecoration(
+        hintText: txt,
+        filled: true,
+        fillColor: kGrayColor,
+        focusColor: kGrayColor,
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: const BorderSide(
+            color: kGrayColor,
+          ),
+        ),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+        contentPadding: const EdgeInsets.symmetric(
+          vertical: 15.0,
+          horizontal: 20.0,
         ),
       ),
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(10),
-      ),
-      contentPadding:
-          const EdgeInsets.symmetric(vertical: 15.0, horizontal: 20.0),
-    ),
-  );
+    );
+  }
 }
 
 Widget _buildButton(String label, Function onPressed) {

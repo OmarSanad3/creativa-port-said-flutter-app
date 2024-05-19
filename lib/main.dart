@@ -1,9 +1,9 @@
 import 'package:creative_portsaid/firebase_options.dart';
 import 'package:creative_portsaid/widgets/home_screen.dart';
 import 'package:creative_portsaid/widgets/login_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 const Color kBlueColor = const Color(0xFF004F9F);
 const Color kYellowColor = const Color(0xFFFDB813);
@@ -27,17 +27,30 @@ Future<void> main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  // Retrieve saved state from SharedPreferences
-  final prefs = await SharedPreferences.getInstance();
-  final bool isLoggedIn = prefs.getBool('isLoggedIn') ?? false;
-
-  runApp(MyApp(isLoggedIn: isLoggedIn));
+  runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key, required this.isLoggedIn});
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
 
-  final bool isLoggedIn;
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  void initState() {
+    super.initState();
+    FirebaseAuth.instance.authStateChanges().listen(
+      (User? user) {
+        if (user == null) {
+          print('User is currently signed out!');
+        } else {
+          print('User is signed in!');
+        }
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +60,9 @@ class MyApp extends StatelessWidget {
         colorScheme: kBlueColorScheme,
         useMaterial3: true,
       ),
-      home: isLoggedIn ? HomeScreen() : LoginPage(),
+      home: FirebaseAuth.instance.currentUser == null
+          ? const LoginPage()
+          : const HomeScreen(),
     );
   }
 }
