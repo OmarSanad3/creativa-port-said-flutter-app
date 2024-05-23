@@ -63,7 +63,10 @@ class AboutCreativaScreen extends StatelessWidget {
                   backgroundColor: MaterialStateProperty.all(kYellowColor),
                 ),
                 onPressed: () {
-                  // navigate to the courses screen
+                  _launchURL(
+                    context,
+                    "https://www.facebook.com/Creativa.Hub.Portsaid",
+                  );
                 },
                 child: const Text("Learn More"),
               ),
