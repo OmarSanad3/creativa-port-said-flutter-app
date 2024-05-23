@@ -5,10 +5,25 @@ import 'package:creative_portsaid/widgets/login_page.dart';
 import 'package:creative_portsaid/widgets/screens/about_creativa_screen.dart';
 import 'package:creative_portsaid/widgets/screens/courses_screen.dart';
 import 'package:creative_portsaid/widgets/screens/creativa_workspace_screen.dart';
+import 'package:creative_portsaid/widgets/screens/taka_attendance_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
+void _login(BuildContext context) {
+  Navigator.push(
+    context,
+    MaterialPageRoute(
+      builder: (context) => const LoginPage(),
+    ),
+  );
+}
+
+void _logout(BuildContext context) async {
+  await FirebaseAuth.instance.signOut();
+}
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -20,6 +35,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   CustomListItem? _currScreen;
   String _userName = "";
+  bool _isGuest = true;
 
   @override
   void initState() {
@@ -29,6 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Future<Map<String, dynamic>?> _getUserData() async {
+    if (FirebaseAuth.instance.currentUser == null) return null;
     DocumentSnapshot userData = await _firestore
         .collection('users')
         .doc(FirebaseAuth.instance.currentUser?.uid)
@@ -43,27 +60,38 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void updateName() async {
-    Map<String, dynamic> userData =
-        await _getUserData() as Map<String, dynamic>;
+    final userData = await _getUserData();
+    if (userData == null) return;
     setState(() {
+      _isGuest = false;
       _userName = _getFirstAndLastName(userData['englishName']);
     });
   }
 
   final List<CustomListItem> _screens = [
     CustomListItem(
-      title: "About Creativa Port Said",
-      icon: Icons.info_rounded,
-      screen: const AboutCreativaScreen(),
-    ),
-    CustomListItem(
       title: "Courses",
       icon: Icons.school_rounded,
       screen: const CoursesScreen(),
     ),
     CustomListItem(
+      title: "About Creativa Port Said",
+      icon: Icons.info_rounded,
+      screen: const AboutCreativaScreen(),
+    ),
+    CustomListItem(
       title: "Creativa Workspace",
       icon: Icons.workspace_premium,
+      screen: const CreativaWorkspaceScreen(),
+    ),
+    CustomListItem(
+      title: "Take Attendence",
+      icon: FontAwesomeIcons.personCircleCheck,
+      screen: const TakeAttendanceScreen(),
+    ),
+    CustomListItem(
+      title: "Suggestions & Complaints",
+      icon: Icons.feedback,
       screen: const CreativaWorkspaceScreen(),
     ),
   ];
@@ -97,13 +125,15 @@ class _HomeScreenState extends State<HomeScreen> {
                   const Spacer(),
                   Row(
                     children: [
-                      const Icon(
-                        Icons.waving_hand_rounded,
-                        color: Colors.white,
-                      ),
+                      _isGuest
+                          ? const Icon(Icons.person)
+                          : const Icon(
+                              Icons.waving_hand_rounded,
+                              color: Colors.white,
+                            ),
                       const SizedBox(width: 10),
                       Text(
-                        "Hi, $_userName",
+                        _isGuest ? "Guest Account" : "Hi, $_userName",
                         style: const TextStyle(
                           color: Colors.white,
                         ),
@@ -133,21 +163,17 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             const Divider(),
             ListTile(
-              title: const Row(
+              title: Row(
                 children: [
-                  Icon(Icons.logout_outlined),
-                  SizedBox(width: 10),
-                  Text("Logout"),
+                  _isGuest
+                      ? const Icon(Icons.login_outlined)
+                      : const Icon(Icons.logout_outlined),
+                  const SizedBox(width: 10),
+                  Text(_isGuest ? "Login" : "Logout"),
                 ],
               ),
-              onTap: () async {
-                await FirebaseAuth.instance.signOut();
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const LoginPage(),
-                  ),
-                );
+              onTap: () {
+                _isGuest ? _login(context) : _logout(context);
               },
             )
           ],

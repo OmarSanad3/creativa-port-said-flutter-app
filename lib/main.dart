@@ -1,7 +1,5 @@
 import 'package:creative_portsaid/firebase_options.dart';
 import 'package:creative_portsaid/widgets/home_screen.dart';
-import 'package:creative_portsaid/widgets/login_page.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -27,7 +25,7 @@ Future<void> main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
@@ -39,20 +37,6 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   @override
-  void initState() {
-    super.initState();
-    FirebaseAuth.instance.authStateChanges().listen(
-      (User? user) {
-        if (user == null) {
-          print('User is currently signed out!');
-        } else {
-          print('User is signed in!');
-        }
-      },
-    );
-  }
-
-  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Creative PortSaid',
@@ -60,9 +44,7 @@ class _MyAppState extends State<MyApp> {
         colorScheme: kBlueColorScheme,
         useMaterial3: true,
       ),
-      home: FirebaseAuth.instance.currentUser == null
-          ? const LoginPage()
-          : const HomeScreen(),
+      home: const HomeScreen(),
     );
   }
 }
