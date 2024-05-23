@@ -5,6 +5,7 @@ import 'package:creative_portsaid/widgets/login_page.dart';
 import 'package:creative_portsaid/widgets/screens/about_creativa_screen.dart';
 import 'package:creative_portsaid/widgets/screens/courses_screen.dart';
 import 'package:creative_portsaid/widgets/screens/creativa_workspace_screen.dart';
+import 'package:creative_portsaid/widgets/screens/suggestions_and_complaints.dart';
 import 'package:creative_portsaid/widgets/screens/taka_attendance_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -92,7 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
     CustomListItem(
       title: "Suggestions & Complaints",
       icon: Icons.feedback,
-      screen: const CreativaWorkspaceScreen(),
+      screen: const SuggestionsAndComplaintsScreen(),
     ),
   ];
 
