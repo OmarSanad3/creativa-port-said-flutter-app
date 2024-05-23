@@ -99,6 +99,34 @@ class AboutCreativaScreen extends StatelessWidget {
                 ),
               ],
             ),
+            const SizedBox(height: 8),
+            const Padding(
+              padding: EdgeInsets.all(8),
+              child: Text(
+                "Location",
+                style: TextStyle(
+                  fontSize: 24,
+                  color: kBlueColor,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8),
+              child: ElevatedButton(
+                style: ButtonStyle(
+                  foregroundColor: MaterialStateProperty.all(Colors.white),
+                  backgroundColor: MaterialStateProperty.all(kYellowColor),
+                ),
+                onPressed: () {
+                  _launchURL(
+                    context,
+                    "https://maps.app.goo.gl/CrjTtdCK71Nxd7gy5",
+                  );
+                },
+                child: const Text("Open Location in Google Maps"),
+              ),
+            ),
           ],
         ),
       ),
