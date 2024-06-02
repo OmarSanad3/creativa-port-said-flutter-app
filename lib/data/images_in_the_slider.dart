@@ -31,7 +31,7 @@ List<SlidingImages> imagesInTheSlider = [
   ),
   SlidingImages(
     imgPath: "lib/assets/sliding_assets/meet_out_extroadinary_organizers.jpeg",
-    caption: "Meet out extraordinary organizers",
+    caption: "Meet our extraordinary organizers",
   ),
   SlidingImages(
     imgPath: "lib/assets/sliding_assets/meet_wonderful_minds.jpg",
