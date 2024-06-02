@@ -1,4 +1,6 @@
+import 'package:creative_portsaid/data/images_in_the_slider.dart';
 import 'package:creative_portsaid/main.dart';
+import 'package:creative_portsaid/widgets/screens/sliding_subpage.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -55,6 +57,7 @@ class AboutCreativaScreen extends StatelessWidget {
                 ),
               ),
             ),
+            const SizedBox(height: 8),
             Padding(
               padding: const EdgeInsets.all(8),
               child: ElevatedButton(
@@ -72,6 +75,10 @@ class AboutCreativaScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 8),
+            SlidingSubpage(
+              images: imagesInTheSlider,
+            ),
+            const SizedBox(height: 50),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
