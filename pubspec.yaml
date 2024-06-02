@@ -74,6 +74,8 @@ flutter:
   assets:
     - lib/assets/
     - lib/assets/sliding_assets/
+    - lib/assets/courses_assets/
+
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
