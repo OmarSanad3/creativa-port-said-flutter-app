@@ -27,20 +27,26 @@ void _logout(BuildContext context) async {
 }
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  const HomeScreen({super.key, this.viewdScreen});
+
+  final CustomListItem? viewdScreen;
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<HomeScreen> createState() => _HomeScreenState(currScreen: viewdScreen);
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  CustomListItem? _currScreen;
+  CustomListItem? currScreen;
   String _userName = "";
   bool _isGuest = true;
 
+  _HomeScreenState({this.currScreen}) {
+    currScreen ??= _screens[0];
+  }
+
   @override
   void initState() {
-    _currScreen = _screens[0];
+    currScreen ??= _screens[0];
     updateName();
     super.initState();
   }
@@ -101,10 +107,10 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(_currScreen!.title),
+        title: Text(currScreen!.title),
       ),
       body: Center(
-        child: _currScreen!.screen,
+        child: currScreen!.screen,
       ),
       drawer: Drawer(
         child: ListView(
@@ -158,7 +164,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 onTap: () {
                   if (mounted) Navigator.pop(context);
                   setState(() {
-                    _currScreen = _screens[i];
+                    currScreen = _screens[i];
                   });
                 },
               ),
