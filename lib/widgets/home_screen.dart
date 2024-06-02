@@ -71,14 +71,14 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final List<CustomListItem> _screens = [
     CustomListItem(
-      title: "Courses",
-      icon: Icons.school_rounded,
-      screen: const CoursesScreen(),
-    ),
-    CustomListItem(
       title: "About Creativa Port Said",
       icon: Icons.info_rounded,
       screen: const AboutCreativaScreen(),
+    ),
+    CustomListItem(
+      title: "Courses",
+      icon: Icons.school_rounded,
+      screen: const CoursesScreen(),
     ),
     CustomListItem(
       title: "Creativa Workspace",
