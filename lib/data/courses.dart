@@ -39,7 +39,7 @@ List<Course> courses = [
     arabicDescription:
         "المهارات التقنية للعاملين المستقلين ورواد الأعمال حول كيفية إنشاء تطبيق الهاتف المحمول الخاص بك باستخدام إنشاء موقع ويب (HTML، CSS، JS)",
     duration: 5,
-    imagePath: "lib/assets/courses_assets/ideation_image.jpeg",
+    imagePath: "lib/assets/courses_assets/course_web.jpg",
     formLink: "https://forms.gle/D2Wc3UHH4CGtvxd99",
   ),
   Course(
