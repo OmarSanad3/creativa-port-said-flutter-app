@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:creative_portsaid/main.dart';
 import 'package:creative_portsaid/models/sliding_images.dart';
 import 'package:flutter/material.dart';
 
@@ -53,6 +54,7 @@ class _SlidingSubpageState extends State<SlidingSubpage> {
                   images[index].caption,
                   style: const TextStyle(
                     fontSize: 20,
+                    color: kBlueColor,
                     fontWeight: FontWeight.bold,
                   ),
                   textAlign: TextAlign.center,
