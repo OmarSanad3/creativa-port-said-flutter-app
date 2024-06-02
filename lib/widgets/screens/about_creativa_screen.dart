@@ -1,5 +1,6 @@
 import 'package:creative_portsaid/data/images_in_the_slider.dart';
 import 'package:creative_portsaid/main.dart';
+import 'package:creative_portsaid/widgets/screens/explore_some_courses.dart';
 import 'package:creative_portsaid/widgets/screens/sliding_subpage.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -75,10 +76,34 @@ class AboutCreativaScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 8),
+            const Padding(
+              padding: EdgeInsets.all(8),
+              child: Text(
+                "What we offer you.",
+                style: TextStyle(
+                  fontSize: 24,
+                  color: kBlueColor,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
             SlidingSubpage(
               images: imagesInTheSlider,
             ),
             const SizedBox(height: 50),
+            const Padding(
+              padding: EdgeInsets.all(8),
+              child: Text(
+                "Explore Our Courses",
+                style: TextStyle(
+                  fontSize: 24,
+                  color: kBlueColor,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            const ExploreSomeCourses(),
+            const SizedBox(height: 8),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
