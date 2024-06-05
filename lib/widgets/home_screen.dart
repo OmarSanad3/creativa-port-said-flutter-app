@@ -77,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final List<CustomListItem> _screens = [
     CustomListItem(
-      title: "About Creativa Port Said",
+      title: "Home Screen",
       icon: Icons.info_rounded,
       screen: const AboutCreativaScreen(),
     ),
